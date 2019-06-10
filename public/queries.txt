@@ -1,0 +1,1 @@
+ALTER TABLE `products` CHANGE `longitude` `longitude` DOUBLE(8,6) NULL DEFAULT '0.000000', CHANGE `laptitude` `laptitude` DOUBLE(8,6) NULL DEFAULT '0.000000';
