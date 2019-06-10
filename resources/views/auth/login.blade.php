@@ -28,6 +28,13 @@
 </style>
 </head>
 <body class="hold-transition login-page">
+
+    @if (session('alert-danger'))
+        <div class="alert alert-danger">
+            {{ session('alert-danger') }}
+        </div>
+    @endif
+
     <div class="login-box">
         <div class="login-logo">
             <a href=""><b>OXAL</b></a>
