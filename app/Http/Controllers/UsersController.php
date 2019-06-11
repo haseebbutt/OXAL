@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use File;
 use Auth;
+use Illuminate\Support\Facades\DB;
 use Session;
 use Redirect;
 use App\User;
@@ -119,6 +120,8 @@ class UsersController extends Controller
 
 	public function delete($id, Request $request) {
 		User::where('id', $id)->delete();
+		DB::table('products')->where('user_id',$id)->delete();
+		DB::table('user_reviews')->where('user_id',$id)->orWhere('reviewer_user_id',$id)->delete();
 		Session::put('success', 'User deleted successfully.');
         return redirect('admin/users');
 	}
